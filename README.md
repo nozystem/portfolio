@@ -5,13 +5,16 @@ son SCSS propio sobre un sistema de variables CSS con tema claro y oscuro.
 
 ## Requisitos
 
-Angular 15 necesita Node `^14.20`, `^16.13` o `^18.10`. Este proyecto se ha
-desarrollado y probado con **Node 18.20.8**.
+Angular 15 declara soporte para Node `^14.20`, `^16.13` o `^18.10`, y en local
+conviene usar **Node 18.20.8** para evitar avisos:
 
 ```bash
 nvm use 18.20.8
 npm install
 ```
+
+También compila sin problemas en Node 22 (con un aviso `EBADENGINE`), que es lo
+que usa Vercel al desplegar.
 
 ## Comandos
 
@@ -75,8 +78,12 @@ manteniendo el nombre, o cambia `cvPath` y `cvFileName` en `profile.data.ts`.
 ## Despliegue en Vercel
 
 El proyecto ya viene configurado: [`vercel.json`](vercel.json) define el build, el
-rewrite de SPA y las cabeceras de caché, y `package.json` fija Node 18 en
-`engines` (Angular 15 no compila en Node 20+, así que este campo es obligatorio).
+rewrite de SPA y las cabeceras de caché, y `package.json` fija Node 22 en
+`engines`, que es lo que Vercel soporta hoy (retiró Node 18 y 20).
+
+Angular 15 declara compatibilidad solo hasta Node 18, así que `npm ci` emite un
+aviso `EBADENGINE` en el build. Es solo un aviso: compila igual y el bundle sale
+idéntico al de Node 18, comprobado.
 
 ### Primer despliegue
 
