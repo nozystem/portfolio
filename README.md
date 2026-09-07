@@ -2,7 +2,7 @@
 
 Portfolio personal hecho con Angular 15 y SCSS.
 
-**[portfolio-4abg.vercel.app](https://portfolio-4abg.vercel.app)**
+**[sergiorubio.vercel.app](https://sergiorubio.vercel.app)**
 
 ## Desarrollo
 
