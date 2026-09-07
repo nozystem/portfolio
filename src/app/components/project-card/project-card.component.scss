@@ -1,0 +1,129 @@
+.project-card {
+  --card-accent: var(--accent);
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1.6rem;
+  overflow: hidden;
+  transition: transform 0.22s ease, box-shadow 0.22s ease,
+    border-color 0.22s ease;
+}
+
+/* Filete de color en el borde superior. */
+.project-card::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 3px;
+  background: var(--card-accent);
+  opacity: 0;
+  transition: opacity 0.22s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-strong);
+}
+
+.project-card:hover::before {
+  opacity: 1;
+}
+
+.project-card__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.1rem;
+}
+
+.project-card__badge {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex: none;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--card-accent) 16%, transparent);
+  color: var(--card-accent);
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.project-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.35rem;
+}
+
+.project-card__title {
+  margin: 0 0 0.3rem;
+  font-size: 1.3rem;
+}
+
+.project-card__title a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+/* El título cubre toda la tarjeta: un solo objetivo de clic accesible. */
+.project-card__title a::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+.project-card:hover .project-card__title a {
+  color: var(--card-accent);
+}
+
+.project-card__meta {
+  margin: 0 0 0.85rem;
+  font-size: 0.85rem;
+  color: var(--text-faint);
+}
+
+.project-card__summary {
+  margin: 0 0 1.25rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.project-card__stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.4rem;
+}
+
+.project-card__tech {
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-sm);
+  background: var(--bg-subtle);
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+}
+
+.project-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: auto;
+  color: var(--card-accent);
+  font-size: 0.92rem;
+  font-weight: 550;
+  text-decoration: none;
+}
+
+.project-card__link app-icon {
+  transition: transform 0.22s ease;
+}
+
+.project-card:hover .project-card__link app-icon {
+  transform: translateX(3px);
+}

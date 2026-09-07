@@ -1,0 +1,38 @@
+<section class="section page-head">
+  <div class="container">
+    <span class="section__label">Proyectos</span>
+    <h1>En qué he trabajado</h1>
+    <p class="lead">
+      Cada proyecto incluye el contexto, mi papel concreto y los problemas
+      técnicos que hubo que resolver por el camino.
+    </p>
+
+    <div class="filters" role="group" aria-label="Filtrar proyectos por categoría">
+      <button
+        *ngFor="let filter of filters"
+        type="button"
+        class="filters__btn"
+        [class.filters__btn--active]="filter === activeFilter"
+        [attr.aria-pressed]="filter === activeFilter"
+        (click)="setFilter(filter)"
+      >
+        {{ filter }}
+      </button>
+    </div>
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="container">
+    <div class="grid-projects" *ngIf="visible.length; else empty">
+      <app-project-card
+        *ngFor="let project of visible; trackBy: trackBySlug"
+        [project]="project"
+      ></app-project-card>
+    </div>
+
+    <ng-template #empty>
+      <p class="muted">No hay proyectos en esta categoría todavía.</p>
+    </ng-template>
+  </div>
+</section>

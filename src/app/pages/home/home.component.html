@@ -1,0 +1,121 @@
+<section class="hero">
+  <div class="container hero__inner">
+    <div class="hero__content">
+      <p class="hero__eyebrow">
+        <span class="hero__dot" aria-hidden="true"></span>
+        Disponible para nuevos proyectos
+      </p>
+
+      <h1 class="hero__title">
+        {{ profile.name }}<span class="hero__period">.</span>
+      </h1>
+
+      <p class="hero__subtitle">{{ profile.headline }}</p>
+
+      <p class="hero__tagline">{{ profile.tagline }}</p>
+
+      <div class="hero__actions">
+        <a class="btn btn--primary" routerLink="/projects">
+          Ver proyectos
+          <app-icon name="arrow-right" [size]="17"></app-icon>
+        </a>
+        <a
+          class="btn btn--ghost"
+          [href]="profile.cvPath"
+          [attr.download]="profile.cvFileName"
+        >
+          <app-icon name="download" [size]="17"></app-icon>
+          Descargar CV
+        </a>
+      </div>
+
+      <ul class="hero__meta">
+        <li>
+          <app-icon name="map-pin" [size]="16"></app-icon>
+          {{ profile.location }}
+        </li>
+        <li *ngFor="let link of socials">
+          <a [href]="link.url" target="_blank" rel="noopener noreferrer">
+            <app-icon [name]="link.icon" [size]="16"></app-icon>
+            {{ link.label }}
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="hero__aside" aria-hidden="true">
+      <div class="code-card">
+        <div class="code-card__bar">
+          <span></span><span></span><span></span>
+          <p class="code-card__file">developer.ts</p>
+        </div>
+        <pre class="code-card__body"><code><span class="tk-key">const</span> <span class="tk-var">sergio</span>: <span class="tk-type">Developer</span> = {{ '{' }}
+  <span class="tk-prop">rol</span>: <span class="tk-str">'Front-end'</span>,
+  <span class="tk-prop">stack</span>: [<span class="tk-str">'Angular'</span>, <span class="tk-str">'Ionic'</span>],
+  <span class="tk-prop">experiencia</span>: <span class="tk-num">4</span>,
+  <span class="tk-prop">enProduccion</span>: <span class="tk-key">true</span>,
+{{ '}' }};</code></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="skills-title">
+  <div class="container">
+    <span class="section__label">Herramientas</span>
+    <h2 id="skills-title">Con lo que trabajo</h2>
+    <p class="lead">
+      El día a día pasa por Angular e Ionic, pero lo que sostiene el resultado es
+      TypeScript bien tipado y un CSS que no pelea contra sí mismo.
+    </p>
+
+    <div class="skills">
+      <article class="skills__group card" *ngFor="let group of skillGroups">
+        <h3 class="skills__title">{{ group.title }}</h3>
+        <ul class="skills__list">
+          <li *ngFor="let item of group.items" class="chip">{{ item }}</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="featured-title">
+  <div class="container">
+    <div class="section__head">
+      <div>
+        <span class="section__label">Trabajo</span>
+        <h2 id="featured-title">Proyectos destacados</h2>
+      </div>
+      <a class="section__more" routerLink="/projects">
+        Ver todos
+        <app-icon name="arrow-right" [size]="16"></app-icon>
+      </a>
+    </div>
+
+    <div class="grid-projects">
+      <app-project-card
+        *ngFor="let project of featured"
+        [project]="project"
+      ></app-project-card>
+    </div>
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="container">
+    <div class="cta card">
+      <div class="cta__text">
+        <h2 class="cta__title">¿Hablamos?</h2>
+        <p class="cta__body">
+          Si buscas a alguien para tu equipo de front-end o quieres comentar un
+          proyecto, escríbeme.
+        </p>
+      </div>
+      <a class="btn btn--primary" routerLink="/contact">
+        <app-icon name="mail" [size]="17"></app-icon>
+        Contactar
+      </a>
+    </div>
+  </div>
+</section>

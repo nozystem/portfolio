@@ -1,0 +1,65 @@
+<form class="contact-form card" [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+  <div class="field">
+    <label for="name">Nombre</label>
+    <input
+      id="name"
+      type="text"
+      formControlName="name"
+      autocomplete="name"
+      placeholder="Tu nombre"
+      [attr.aria-invalid]="showError('name')"
+    />
+    <p class="field__error" *ngIf="showError('name')">
+      Escribe tu nombre (mínimo 2 caracteres).
+    </p>
+  </div>
+
+  <div class="field">
+    <label for="email">Email</label>
+    <input
+      id="email"
+      type="email"
+      formControlName="email"
+      autocomplete="email"
+      placeholder="tu@email.com"
+      [attr.aria-invalid]="showError('email')"
+    />
+    <p class="field__error" *ngIf="showError('email')">
+      Necesito una dirección de correo válida para responderte.
+    </p>
+  </div>
+
+  <div class="field">
+    <label for="subject">Asunto <span class="field__optional">(opcional)</span></label>
+    <input
+      id="subject"
+      type="text"
+      formControlName="subject"
+      placeholder="Oportunidad, colaboración, duda técnica…"
+    />
+  </div>
+
+  <div class="field">
+    <label for="message">Mensaje</label>
+    <textarea
+      id="message"
+      rows="6"
+      formControlName="message"
+      placeholder="Cuéntame en qué estás pensando."
+      [attr.aria-invalid]="showError('message')"
+    ></textarea>
+    <p class="field__error" *ngIf="showError('message')">
+      Escribe algo más de contexto (mínimo 20 caracteres).
+    </p>
+  </div>
+
+  <div class="contact-form__actions">
+    <button type="submit" class="btn btn--primary">
+      <app-icon name="mail" [size]="17"></app-icon>
+      Enviar mensaje
+    </button>
+    <p class="contact-form__note">
+      El formulario abre tu cliente de correo con el mensaje ya escrito.
+    </p>
+  </div>
+</form>

@@ -1,0 +1,55 @@
+<header class="header" [class.header--scrolled]="scrolled">
+  <div class="container header__inner">
+    <a class="brand" routerLink="/" (click)="closeMenu()">
+      <span class="brand__mark" aria-hidden="true">SR</span>
+      <span class="brand__text">
+        <span class="brand__name">{{ profile.name }}</span>
+        <span class="brand__role">{{ profile.role }}</span>
+      </span>
+    </a>
+
+    <nav class="nav" [class.nav--open]="menuOpen" aria-label="Navegación principal">
+      <a
+        *ngFor="let item of navItems"
+        class="nav__link"
+        [routerLink]="item.path"
+        routerLinkActive="nav__link--active"
+        [routerLinkActiveOptions]="{ exact: item.path === '/' }"
+        (click)="closeMenu()"
+        >{{ item.label }}</a
+      >
+      <a
+        class="btn btn--primary nav__cta"
+        [href]="profile.cvPath"
+        [attr.download]="profile.cvFileName"
+        (click)="closeMenu()"
+      >
+        <app-icon name="download" [size]="17"></app-icon>
+        CV
+      </a>
+    </nav>
+
+    <div class="header__actions">
+      <button
+        type="button"
+        class="icon-btn"
+        (click)="theme.toggle()"
+        [attr.aria-label]="
+          theme.value === 'dark' ? 'Activar tema claro' : 'Activar tema oscuro'
+        "
+      >
+        <app-icon [name]="theme.value === 'dark' ? 'sun' : 'moon'"></app-icon>
+      </button>
+
+      <button
+        type="button"
+        class="icon-btn icon-btn--menu"
+        (click)="toggleMenu()"
+        [attr.aria-expanded]="menuOpen"
+        [attr.aria-label]="menuOpen ? 'Cerrar menú' : 'Abrir menú'"
+      >
+        <app-icon [name]="menuOpen ? 'close' : 'menu'"></app-icon>
+      </button>
+    </div>
+  </div>
+</header>

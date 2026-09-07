@@ -1,0 +1,81 @@
+<ng-container *ngIf="project as p">
+  <section class="detail-hero" [style.--accent-project]="p.accent">
+    <div class="container">
+      <a class="back" routerLink="/projects">
+        <app-icon name="arrow-left" [size]="16"></app-icon>
+        Volver a proyectos
+      </a>
+
+      <ul class="detail-hero__tags">
+        <li *ngFor="let tag of p.tags" class="chip chip--accent">{{ tag }}</li>
+      </ul>
+
+      <h1 class="detail-hero__title">{{ p.name }}</h1>
+
+      <p class="detail-hero__meta">
+        {{ p.role }}<ng-container *ngIf="p.company"> · {{ p.company }}</ng-container>
+        · {{ p.period }}
+      </p>
+
+      <p class="detail-hero__intro">{{ p.intro }}</p>
+
+      <div class="detail-hero__links" *ngIf="publicLinks.length">
+        <a
+          *ngFor="let link of publicLinks"
+          class="btn btn--ghost"
+          [href]="link.url"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {{ link.label }}
+          <app-icon name="external" [size]="16"></app-icon>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container detail-grid">
+      <div class="detail-body">
+        <article class="detail-block" *ngFor="let section of p.sections">
+          <h2 class="detail-block__title">{{ section.title }}</h2>
+          <p *ngFor="let paragraph of section.body">{{ paragraph }}</p>
+        </article>
+      </div>
+
+      <aside class="detail-aside">
+        <div class="panel card">
+          <h3 class="panel__title">Datos</h3>
+          <ul class="panel__metrics">
+            <li *ngFor="let metric of p.metrics">
+              <span class="panel__metric-label">{{ metric.label }}</span>
+              <span class="panel__metric-value">{{ metric.value }}</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="panel card">
+          <h3 class="panel__title">
+            <app-icon name="code" [size]="16"></app-icon>
+            Stack
+          </h3>
+          <ul class="panel__stack">
+            <li *ngFor="let tech of p.stack" class="chip">{{ tech }}</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section--tight" *ngIf="next as n">
+    <div class="container">
+      <a class="next card" [routerLink]="['/projects', n.slug]">
+        <div>
+          <span class="next__label">Siguiente proyecto</span>
+          <span class="next__name">{{ n.name }}</span>
+        </div>
+        <app-icon name="arrow-right" [size]="20"></app-icon>
+      </a>
+    </div>
+  </section>
+</ng-container>

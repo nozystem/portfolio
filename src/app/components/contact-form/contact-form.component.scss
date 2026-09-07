@@ -1,0 +1,86 @@
+.contact-form {
+  display: grid;
+  gap: 1.15rem;
+  padding: 1.8rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.field label {
+  font-size: 0.88rem;
+  font-weight: 550;
+  color: var(--text);
+}
+
+.field__optional {
+  font-weight: 400;
+  color: var(--text-faint);
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 0.72rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.95rem;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: var(--text-faint);
+}
+
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.field input[aria-invalid='true'],
+.field textarea[aria-invalid='true'] {
+  border-color: #dc2626;
+}
+
+.field__error {
+  margin: 0;
+  font-size: 0.82rem;
+  color: #dc2626;
+}
+
+/* En tema oscuro el rojo puro no contrasta bien sobre el fondo. */
+:host-context([data-theme='dark']) .field__error {
+  color: #f87171;
+}
+
+:host-context([data-theme='dark']) .field input[aria-invalid='true'],
+:host-context([data-theme='dark']) .field textarea[aria-invalid='true'] {
+  border-color: #f87171;
+}
+
+.contact-form__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.3rem;
+}
+
+.contact-form__note {
+  margin: 0;
+  font-size: 0.83rem;
+  color: var(--text-faint);
+}

@@ -1,0 +1,185 @@
+.detail-hero {
+  --accent-project: var(--accent);
+
+  position: relative;
+  padding: 2.5rem 0 3rem;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--accent-project) 9%, transparent),
+    transparent
+  );
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 1.8rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.back:hover {
+  color: var(--accent-project);
+}
+
+.detail-hero__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.detail-hero__title {
+  margin: 0 0 0.4rem;
+}
+
+.detail-hero__meta {
+  margin: 0 0 1.4rem;
+  font-size: 0.92rem;
+  color: var(--text-faint);
+}
+
+.detail-hero__intro {
+  max-width: 68ch;
+  margin: 0 0 1.8rem;
+  font-size: 1.05rem;
+  color: var(--text-muted);
+}
+
+.detail-hero__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+/* --- Cuerpo --------------------------------------------------------------- */
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 290px;
+  gap: 3rem;
+  align-items: start;
+}
+
+.detail-block {
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.detail-block:last-child {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
+.detail-block__title {
+  font-size: 1.35rem;
+  margin-bottom: 0.9rem;
+}
+
+.detail-block p {
+  max-width: 70ch;
+  color: var(--text-muted);
+}
+
+/* --- Panel lateral -------------------------------------------------------- */
+
+.detail-aside {
+  position: sticky;
+  top: calc(var(--header-height) + 1.5rem);
+  display: grid;
+  gap: 1rem;
+}
+
+.panel {
+  padding: 1.4rem;
+}
+
+.panel__title {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0 0 1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.panel__metrics {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.panel__metrics li {
+  display: grid;
+  gap: 0.1rem;
+}
+
+.panel__metric-label {
+  font-size: 0.8rem;
+  color: var(--text-faint);
+}
+
+.panel__metric-value {
+  font-weight: 600;
+}
+
+.panel__stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+/* --- Siguiente proyecto --------------------------------------------------- */
+
+.next {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.5rem 1.8rem;
+  color: var(--text);
+  text-decoration: none;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.next:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  color: var(--text);
+  text-decoration: none;
+}
+
+.next__label {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-faint);
+}
+
+.next__name {
+  display: block;
+  font-size: 1.15rem;
+  font-weight: 620;
+}
+
+.next app-icon {
+  color: var(--accent);
+}
+
+@media (max-width: 900px) {
+  .detail-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .detail-aside {
+    position: static;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+}
