@@ -63,18 +63,6 @@
   background: var(--accent-soft);
 }
 
-.footer__legal {
-  margin-top: 2rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--border);
-}
-
-.footer__legal p {
-  margin: 0;
-  font-size: 0.85rem;
-  color: var(--text-faint);
-}
-
 @media (max-width: 620px) {
   .footer__inner {
     flex-direction: column;
