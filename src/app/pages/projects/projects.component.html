@@ -2,12 +2,17 @@
   <div class="container">
     <span class="section__label">Proyectos</span>
     <h1>En qué he trabajado</h1>
-    <p class="lead">
+    <p class="lead" *ngIf="visible.length">
       Cada proyecto incluye el contexto, mi papel concreto y los problemas
       técnicos que hubo que resolver por el camino.
     </p>
 
-    <div class="filters" role="group" aria-label="Filtrar proyectos por categoría">
+    <div
+      class="filters"
+      role="group"
+      aria-label="Filtrar proyectos por categoría"
+      *ngIf="filters.length > 1"
+    >
       <button
         *ngFor="let filter of filters"
         type="button"
@@ -32,7 +37,25 @@
     </div>
 
     <ng-template #empty>
-      <p class="muted">No hay proyectos en esta categoría todavía.</p>
+      <div class="empty card">
+        <app-icon name="code" [size]="26"></app-icon>
+        <h2 class="empty__title">Todavía no hay proyectos publicados</h2>
+        <p class="empty__body">
+          Estoy preparando los casos de estudio. Mientras tanto, en el CV está el
+          detalle de mi experiencia, y si quieres que te cuente en qué he
+          trabajado, escríbeme.
+        </p>
+        <div class="empty__actions">
+          <a class="btn btn--primary" routerLink="/contact">
+            <app-icon name="mail" [size]="17"></app-icon>
+            Contactar
+          </a>
+          <a class="btn btn--ghost" routerLink="/about">
+            Ver mi experiencia
+            <app-icon name="arrow-right" [size]="16"></app-icon>
+          </a>
+        </div>
+      </div>
     </ng-template>
   </div>
 </section>

@@ -41,3 +41,32 @@
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.25rem;
 }
+
+/* --- Estado vacío --------------------------------------------------------- */
+
+.empty {
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.empty app-icon {
+  color: var(--accent);
+}
+
+.empty__title {
+  margin: 1rem 0 0.5rem;
+  font-size: 1.3rem;
+}
+
+.empty__body {
+  max-width: 52ch;
+  margin: 0 auto 1.8rem;
+  color: var(--text-muted);
+}
+
+.empty__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.7rem;
+}

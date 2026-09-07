@@ -35,8 +35,9 @@ export const ABOUT_PARAGRAPHS: string[] = [
     'pruebas y publicación en Google Play y App Store. Esa parte final —el empaquetado, las ' +
     'revisiones de tienda, los dispositivos de gama baja que no perdonan— es la que más me ha ' +
     'enseñado sobre rendimiento real.',
-  'Compagino el trabajo con el CFGS de Desarrollo de Aplicaciones Multiplataforma. Me interesa ' +
-    'el detalle de la interfaz, la accesibilidad y escribir código que se lea con facilidad.',
+  'Me formé en el CFGS de Desarrollo de Aplicaciones Multiplataforma mientras trabajaba. Me ' +
+    'interesa el detalle de la interfaz, la accesibilidad y escribir código que se lea con ' +
+    'facilidad seis meses después.',
 ];
 
 export const SKILL_GROUPS: SkillGroup[] = [
@@ -67,7 +68,7 @@ export const EXPERIENCE: ExperienceItem[] = [
   {
     company: 'Lanaccess',
     role: 'Desarrollador Frontend',
-    period: 'Julio 2022 — Actualidad',
+    period: 'Julio 2022 — Actualidad · L\'Hospitalet de Llobregat',
     current: true,
     bullets: [
       'Desarrollo de vistas y lógica de cliente en Ionic y Angular para aplicaciones móviles en producción.',

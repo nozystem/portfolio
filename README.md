@@ -58,11 +58,14 @@ que no aparezcan rotos. Cuando tengas la URL real, ponla y quita el flag:
 { label: 'GitHub', url: 'https://github.com/tu-usuario', icon: 'github' },
 ```
 
-Ahora mismo están pendientes: **GitHub**, **LinkedIn**, los enlaces a **Google
-Play** y **App Store** de lanMobile, y el repositorio de este portfolio.
+Ahora mismo están pendientes: **GitHub** y **LinkedIn**.
 
-También conviene rellenar las métricas reales de lanMobile (descargas,
-valoración) en el array `metrics` de ese proyecto.
+### Proyectos
+
+El array `PROJECTS` está vacío a propósito. Mientras lo esté, la home oculta la
+sección de destacados y `/projects` muestra un estado vacío que lleva a
+contacto. La plantilla comentada al principio del archivo tiene la estructura
+lista para copiar.
 
 ### CV
 

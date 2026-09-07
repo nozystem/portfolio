@@ -15,8 +15,11 @@
       <p class="hero__tagline">{{ profile.tagline }}</p>
 
       <div class="hero__actions">
-        <a class="btn btn--primary" routerLink="/projects">
-          Ver proyectos
+        <a
+          class="btn btn--primary"
+          [routerLink]="featured.length ? '/projects' : '/contact'"
+        >
+          {{ featured.length ? 'Ver proyectos' : 'Hablemos' }}
           <app-icon name="arrow-right" [size]="17"></app-icon>
         </a>
         <a
@@ -80,7 +83,7 @@
   </div>
 </section>
 
-<section class="section" aria-labelledby="featured-title">
+<section class="section" aria-labelledby="featured-title" *ngIf="featured.length">
   <div class="container">
     <div class="section__head">
       <div>
