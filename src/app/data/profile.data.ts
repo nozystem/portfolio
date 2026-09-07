@@ -126,15 +126,13 @@ export const LANGUAGES: LanguageItem[] = [
 export const SOCIAL_LINKS: SocialLink[] = [
   {
     label: 'GitHub',
-    url: 'https://github.com/',
+    url: 'https://github.com/nozystem',
     icon: 'github',
-    pending: true,
   },
   {
     label: 'LinkedIn',
-    url: 'https://www.linkedin.com/',
+    url: 'https://www.linkedin.com/in/sergio-rubio-9928861b8/',
     icon: 'linkedin',
-    pending: true,
   },
   {
     label: 'Email',
