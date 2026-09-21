@@ -15,7 +15,7 @@ export const PROFILE = {
   role: 'Desarrollador Front-end',
   headline: 'Front-end con Angular, TypeScript e Ionic',
   tagline:
-    'Cuatro años construyendo interfaces web y apps móviles híbridas con Ionic y Angular, ' +
+    'Cuatro años construyendo interfaces web y apps móviles híbridas con Angular e Ionic, ' +
     'desde el requisito hasta la publicación en tiendas.',
   location: 'Viladecans, Barcelona',
   email: 'nozystem@gmail.com',
@@ -35,6 +35,9 @@ export const ABOUT_PARAGRAPHS: string[] = [
     'pruebas y publicación en Google Play y App Store. Esa parte final —el empaquetado, las ' +
     'revisiones de tienda, las incidencias en App Store Connect, los dispositivos de gama baja ' +
     'que no perdonan— es la que más me ha enseñado sobre cómo se sostiene una app de verdad.',
+  'Últimamente trabajo con Angular 16-19, aprovechando standalone components y signals. ' +
+    'También salgo del front cuando hace falta: he implementado permisos y declarado Protocol ' +
+    'Buffers en Node.js, y estoy desarrollando un CRUD en Rust.',
   'Me formé en el CFGS de Desarrollo de Aplicaciones Multiplataforma mientras trabajaba. Me ' +
     'interesa el detalle de la interfaz, la accesibilidad y escribir código que se lea con ' +
     'facilidad seis meses después.',
@@ -47,11 +50,11 @@ export const SKILL_GROUPS: SkillGroup[] = [
   },
   {
     title: 'Frameworks',
-    items: ['Angular', 'Ionic', 'Cordova', 'RxJS'],
+    items: ['Angular 16-19', 'Signals', 'Standalone', 'Ionic', 'RxJS', 'Cordova'],
   },
   {
     title: 'Herramientas',
-    items: ['Git', 'REST APIs', 'Angular CLI', 'Android Studio', 'Xcode'],
+    items: ['Git', 'REST APIs', 'Angular CLI', 'Android Studio', 'Xcode', 'CI/CD'],
   },
   {
     title: 'Prácticas',
@@ -60,8 +63,13 @@ export const SKILL_GROUPS: SkillGroup[] = [
       'Accesibilidad',
       'Revisión de código',
       'Publicación en tiendas',
+      'Testing unitario',
       'Scrum',
     ],
+  },
+  {
+    title: 'Backend',
+    items: ['Node.js', 'Protocol Buffers', 'Rust'],
   },
 ];
 
@@ -72,13 +80,14 @@ export const EXPERIENCE: ExperienceItem[] = [
     period: 'Julio 2022 — Actualidad · L\'Hospitalet de Llobregat',
     current: true,
     bullets: [
-      'Desarrollo de vistas y lógica de cliente en Angular e Ionic para aplicaciones móviles en producción.',
+      'Desarrollo de vistas y lógica de cliente en Angular 16-19 e Ionic para aplicaciones móviles en producción.',
       'Integración con APIs REST y gestión del estado local de la aplicación con RxJS.',
       'Traducción de maquetas de diseño a interfaces responsivas y accesibles en Android e iOS.',
       'Optimización del rendimiento en dispositivos de gama baja.',
       'Empaquetado con Cordova y publicación en Google Play y App Store.',
       'Resolución de incidencias en App Store Connect: App Clips y problemas de build-linking.',
       'Decisiones de infraestructura de build: migración de Macs Intel y compatibilidad con nuevas versiones de Xcode.',
+      'Colaboración puntual en backend: permisos y Protocol Buffers en Node.js, y un CRUD en Rust.',
       'Revisiones de código, refactorizaciones y planificación ágil (Scrum).',
     ],
   },

@@ -39,7 +39,10 @@ export class HomeComponent implements OnInit {
     'Ionic',
     'RxJS',
     'SCSS',
+    'Signals',
     'Accesibilidad',
+    'Node.js',
+    'Rust',
     'Cordova',
     'Git',
   ];
