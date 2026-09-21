@@ -4,7 +4,9 @@
   min-height: 100vh;
 }
 
+/* El header es fijo: el contenido arranca por debajo. */
 main {
   flex: 1 0 auto;
+  padding-top: var(--header-height);
   outline: none;
 }

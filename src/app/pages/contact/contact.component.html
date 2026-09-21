@@ -1,8 +1,8 @@
 <section class="section page-head">
   <div class="container">
-    <span class="section__label">Contacto</span>
-    <h1>Hablemos</h1>
-    <p class="lead">
+    <p class="section__label" appReveal>Contacto</p>
+    <h1 appReveal="60">Hablemos</h1>
+    <p class="lead" appReveal="140">
       Estoy abierto a oportunidades de front-end con Angular o Ionic, y también a
       resolver dudas sobre cualquier cosa que veas aquí.
     </p>
@@ -12,7 +12,7 @@
 <section class="section section--tight">
   <div class="container contact-grid">
     <div class="contact-info">
-      <div class="contact-item card">
+      <div class="contact-item">
         <app-icon name="mail" [size]="20"></app-icon>
         <div class="contact-item__body">
           <span class="contact-item__label">Email</span>
@@ -28,7 +28,7 @@
         </button>
       </div>
 
-      <div class="contact-item card">
+      <div class="contact-item">
         <app-icon name="phone" [size]="20"></app-icon>
         <div class="contact-item__body">
           <span class="contact-item__label">Teléfono</span>
@@ -38,7 +38,7 @@
         </div>
       </div>
 
-      <div class="contact-item card">
+      <div class="contact-item">
         <app-icon name="map-pin" [size]="20"></app-icon>
         <div class="contact-item__body">
           <span class="contact-item__label">Ubicación</span>
@@ -46,7 +46,7 @@
         </div>
       </div>
 
-      <div class="contact-item card" *ngFor="let link of socials">
+      <div class="contact-item" *ngFor="let link of socials">
         <app-icon [name]="link.icon" [size]="20"></app-icon>
         <div class="contact-item__body">
           <span class="contact-item__label">{{ link.label }}</span>
@@ -56,7 +56,7 @@
         </div>
       </div>
 
-      <div class="availability card">
+      <div class="availability">
         <h2 class="availability__title">Disponibilidad</h2>
         <p class="availability__body">{{ profile.availability }}</p>
         <a

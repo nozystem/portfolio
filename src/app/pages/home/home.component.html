@@ -1,80 +1,121 @@
+<!-- ===== Hero ========================================================== -->
 <section class="hero">
-  <div class="container hero__inner">
-    <div class="hero__content">
-      <p class="hero__eyebrow">
-        <span class="hero__dot" aria-hidden="true"></span>
-        Disponible para proyectos 100% remotos
-      </p>
+  <div class="container">
+    <p class="hero__eyebrow" appReveal>
+      <span class="hero__dot" aria-hidden="true"></span>
+      Disponible para proyectos 100% remotos
+    </p>
 
-      <h1 class="hero__title">
-        {{ profile.name }}<span class="hero__period">.</span>
-      </h1>
+    <h1 class="hero__title">
+      <span class="hero__line" appReveal="60">Hola, soy Sergio,</span>
+      <span class="hero__line" appReveal="160">
+        desarrollador <em>front-end</em>
+      </span>
+    </h1>
 
-      <p class="hero__subtitle">{{ profile.headline }}</p>
+    <div class="hero__bottom">
+      <p class="hero__tagline" appReveal="260">{{ profile.tagline }}</p>
 
-      <p class="hero__tagline">{{ profile.tagline }}</p>
-
-      <div class="hero__actions">
-        <a
-          class="btn btn--primary"
-          [routerLink]="featured.length ? '/projects' : '/contact'"
-        >
-          {{ featured.length ? 'Ver proyectos' : 'Hablemos' }}
-          <app-icon name="arrow-right" [size]="17"></app-icon>
+      <div class="hero__actions" appReveal="340">
+        <a class="btn btn--primary" routerLink="/projects">
+          Ver proyectos
+          <app-icon name="arrow-right" [size]="16"></app-icon>
         </a>
         <a
           class="btn btn--ghost"
           [href]="profile.cvPath"
           [attr.download]="profile.cvFileName"
         >
-          <app-icon name="download" [size]="17"></app-icon>
+          <app-icon name="download" [size]="16"></app-icon>
           Descargar CV
         </a>
       </div>
-
-      <ul class="hero__meta">
-        <li>
-          <app-icon name="map-pin" [size]="16"></app-icon>
-          {{ profile.location }}
-        </li>
-        <li *ngFor="let link of socials">
-          <a [href]="link.url" target="_blank" rel="noopener noreferrer">
-            <app-icon [name]="link.icon" [size]="16"></app-icon>
-            {{ link.label }}
-          </a>
-        </li>
-      </ul>
     </div>
 
-    <div class="hero__aside" aria-hidden="true">
-      <div class="code-card">
-        <div class="code-card__bar">
-          <span></span><span></span><span></span>
-          <p class="code-card__file">developer.ts</p>
-        </div>
-        <pre class="code-card__body"><code><span class="tk-key">const</span> <span class="tk-var">sergio</span>: <span class="tk-type">Developer</span> = {{ '{' }}
-  <span class="tk-prop">rol</span>: <span class="tk-str">'Front-end'</span>,
-  <span class="tk-prop">stack</span>: [<span class="tk-str">'Angular'</span>, <span class="tk-str">'Ionic'</span>],
-  <span class="tk-prop">experiencia</span>: <span class="tk-num">4</span>,
-  <span class="tk-prop">enProduccion</span>: <span class="tk-key">true</span>,
-{{ '}' }};</code></pre>
-      </div>
-    </div>
+    <ul class="hero__meta" appReveal="420">
+      <li>
+        <app-icon name="map-pin" [size]="15"></app-icon>
+        {{ profile.location }}
+      </li>
+      <li *ngFor="let link of socials">
+        <a
+          class="link-underline"
+          [href]="link.url"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <app-icon [name]="link.icon" [size]="15"></app-icon>
+          {{ link.label }}
+        </a>
+      </li>
+    </ul>
   </div>
 </section>
 
+<!-- ===== Marquesina de stack ============================================ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <span class="marquee__group" *ngFor="let copy of [1, 2]">
+      <span class="marquee__item" *ngFor="let tech of marqueeItems">
+        {{ tech }}
+        <span class="marquee__sep">✦</span>
+      </span>
+    </span>
+  </div>
+</div>
+
+<!-- ===== Sobre mí ======================================================= -->
+<section class="section" aria-labelledby="about-title">
+  <div class="container">
+    <p class="section__label" appReveal>01 — Sobre mí</p>
+
+    <div class="about">
+      <h2 id="about-title" class="about__title" appReveal>
+        Construyo interfaces que se sostienen: accesibles, rápidas y fáciles de
+        mantener seis meses después.
+      </h2>
+
+      <div class="about__side" appReveal="120">
+        <p class="about__body">{{ intro }}</p>
+        <a class="link-underline about__more" routerLink="/about">
+          Más sobre mí
+          <app-icon name="arrow-right" [size]="15"></app-icon>
+        </a>
+      </div>
+    </div>
+
+    <ul class="stats">
+      <li class="stats__item" *ngFor="let stat of stats; let i = index" [appReveal]="i * 90">
+        <span class="stats__value">{{ stat.value }}</span>
+        <span class="stats__label">{{ stat.label }}</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== Herramientas =================================================== -->
 <section class="section" aria-labelledby="skills-title">
   <div class="container">
-    <span class="section__label">Herramientas</span>
-    <h2 id="skills-title">Con lo que trabajo</h2>
-    <p class="lead">
-      El día a día pasa por Angular e Ionic, pero lo que sostiene el resultado es
-      TypeScript bien tipado y un CSS que no pelea contra sí mismo.
-    </p>
+    <p class="section__label" appReveal>02 — Herramientas</p>
+
+    <div class="section__head">
+      <h2 id="skills-title" appReveal>Con lo que trabajo</h2>
+      <p class="lead" appReveal="100">
+        El día a día pasa por Angular e Ionic, pero lo que sostiene el resultado
+        es TypeScript bien tipado y un CSS que no pelea contra sí mismo.
+      </p>
+    </div>
 
     <div class="skills">
-      <article class="skills__group card" *ngFor="let group of skillGroups">
-        <h3 class="skills__title">{{ group.title }}</h3>
+      <article
+        class="skills__group"
+        *ngFor="let group of skillGroups; let i = index"
+        [appReveal]="i * 80"
+      >
+        <h3 class="skills__title">
+          <span class="skills__index">0{{ i + 1 }}</span>
+          {{ group.title }}
+        </h3>
         <ul class="skills__list">
           <li *ngFor="let item of group.items" class="chip">{{ item }}</li>
         </ul>
@@ -83,42 +124,62 @@
   </div>
 </section>
 
-<section class="section" aria-labelledby="featured-title" *ngIf="featured.length">
+<!-- ===== Proyectos destacados =========================================== -->
+<section class="section" aria-labelledby="featured-title">
   <div class="container">
-    <div class="section__head">
-      <div>
-        <span class="section__label">Trabajo</span>
-        <h2 id="featured-title">Proyectos destacados</h2>
-      </div>
-      <a class="section__more" routerLink="/projects">
+    <p class="section__label" appReveal>03 — Trabajo</p>
+
+    <div class="section__head section__head--row">
+      <h2 id="featured-title" appReveal>Proyectos destacados</h2>
+      <a class="link-underline" routerLink="/projects" appReveal="100">
         Ver todos
-        <app-icon name="arrow-right" [size]="16"></app-icon>
+        <app-icon name="arrow-right" [size]="15"></app-icon>
       </a>
     </div>
 
-    <div class="grid-projects">
+    <div class="grid-projects" *ngIf="featured.length; else noProjects">
       <app-project-card
-        *ngFor="let project of featured"
+        *ngFor="let project of featured; let i = index"
         [project]="project"
+        [appReveal]="i * 90"
       ></app-project-card>
     </div>
+
+    <!-- Aún sin casos publicados: se avisa en vez de dejar un hueco. -->
+    <ng-template #noProjects>
+      <div class="empty" appReveal>
+        <p class="empty__title">Casos de estudio en preparación</p>
+        <p class="empty__body">
+          Estoy documentando el trabajo que he hecho en producción. Mientras
+          tanto, el CV recoge el detalle y puedes escribirme si quieres verlo en
+          profundidad.
+        </p>
+        <a class="link-underline" routerLink="/contact">
+          Escríbeme
+          <app-icon name="arrow-right" [size]="15"></app-icon>
+        </a>
+      </div>
+    </ng-template>
   </div>
 </section>
 
-<section class="section section--tight">
-  <div class="container">
-    <div class="cta card">
-      <div class="cta__text">
-        <h2 class="cta__title">¿Hablamos?</h2>
-        <p class="cta__body">
-          Si buscas a alguien para tu equipo de front-end o quieres comentar un
-          proyecto, escríbeme.
-        </p>
-      </div>
-      <a class="btn btn--primary" routerLink="/contact">
-        <app-icon name="mail" [size]="17"></app-icon>
-        Contactar
+<!-- ===== CTA final ====================================================== -->
+<section class="cta" aria-labelledby="cta-title">
+  <div class="container cta__inner">
+    <p class="cta__eyebrow" appReveal>¿Siguiente proyecto?</p>
+    <h2 id="cta-title" class="cta__title" appReveal="80">
+      Trabajemos <em>juntos</em>
+    </h2>
+    <a class="cta__link" routerLink="/contact" appReveal="160">
+      <span>Ponte en contacto</span>
+      <span class="cta__arrow" aria-hidden="true">
+        <app-icon name="arrow-right" [size]="22"></app-icon>
+      </span>
+    </a>
+    <p class="cta__mail" appReveal="220">
+      <a class="link-underline" [href]="'mailto:' + profile.email">
+        {{ profile.email }}
       </a>
-    </div>
+    </p>
   </div>
 </section>

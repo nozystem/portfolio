@@ -1,32 +1,19 @@
 <header class="header" [class.header--scrolled]="scrolled">
   <div class="container header__inner">
     <a class="brand" routerLink="/" (click)="closeMenu()">
-      <span class="brand__mark" aria-hidden="true">SR</span>
-      <span class="brand__text">
-        <span class="brand__name">{{ profile.name }}</span>
-        <span class="brand__role">{{ profile.role }}</span>
-      </span>
+      <span class="brand__mark" aria-hidden="true"></span>
+      <span class="brand__name">{{ profile.name }}</span>
     </a>
 
-    <nav class="nav" [class.nav--open]="menuOpen" aria-label="Navegación principal">
+    <nav class="nav" aria-label="Navegación principal">
       <a
         *ngFor="let item of navItems"
         class="nav__link"
         [routerLink]="item.path"
         routerLinkActive="nav__link--active"
         [routerLinkActiveOptions]="{ exact: item.path === '/' }"
-        (click)="closeMenu()"
         >{{ item.label }}</a
       >
-      <a
-        class="btn btn--primary nav__cta"
-        [href]="profile.cvPath"
-        [attr.download]="profile.cvFileName"
-        (click)="closeMenu()"
-      >
-        <app-icon name="download" [size]="17"></app-icon>
-        CV
-      </a>
     </nav>
 
     <div class="header__actions">
@@ -38,8 +25,16 @@
           theme.value === 'dark' ? 'Activar tema claro' : 'Activar tema oscuro'
         "
       >
-        <app-icon [name]="theme.value === 'dark' ? 'sun' : 'moon'"></app-icon>
+        <app-icon
+          [name]="theme.value === 'dark' ? 'sun' : 'moon'"
+          [size]="18"
+        ></app-icon>
       </button>
+
+      <a class="header__cta" routerLink="/contact">
+        Hablemos
+        <span class="header__cta-dot" aria-hidden="true"></span>
+      </a>
 
       <button
         type="button"
@@ -48,8 +43,37 @@
         [attr.aria-expanded]="menuOpen"
         [attr.aria-label]="menuOpen ? 'Cerrar menú' : 'Abrir menú'"
       >
-        <app-icon [name]="menuOpen ? 'close' : 'menu'"></app-icon>
+        <app-icon [name]="menuOpen ? 'close' : 'menu'" [size]="18"></app-icon>
       </button>
     </div>
   </div>
 </header>
+
+<!-- Menú móvil a pantalla completa. -->
+<div class="overlay" [class.overlay--open]="menuOpen">
+  <nav class="overlay__nav" aria-label="Navegación móvil">
+    <a
+      *ngFor="let item of navItems; let i = index"
+      class="overlay__link"
+      [style.--i]="i"
+      [routerLink]="item.path"
+      (click)="closeMenu()"
+      >{{ item.label }}</a
+    >
+  </nav>
+
+  <div class="overlay__foot">
+    <a
+      class="link-underline"
+      [href]="profile.cvPath"
+      [attr.download]="profile.cvFileName"
+      (click)="closeMenu()"
+    >
+      <app-icon name="download" [size]="16"></app-icon>
+      Descargar CV
+    </a>
+    <a class="link-underline" [href]="'mailto:' + profile.email">
+      {{ profile.email }}
+    </a>
+  </div>
+</div>

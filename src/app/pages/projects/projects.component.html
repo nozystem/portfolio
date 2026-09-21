@@ -1,8 +1,8 @@
 <section class="section page-head">
   <div class="container">
-    <span class="section__label">Proyectos</span>
-    <h1>En qué he trabajado</h1>
-    <p class="lead" *ngIf="visible.length">
+    <p class="section__label" appReveal>Proyectos</p>
+    <h1 appReveal="60">En qué he <em>trabajado</em></h1>
+    <p class="lead" *ngIf="visible.length" appReveal="140">
       Cada proyecto incluye el contexto, mi papel concreto y los problemas
       técnicos que hubo que resolver por el camino.
     </p>
@@ -31,13 +31,14 @@
   <div class="container">
     <div class="grid-projects" *ngIf="visible.length; else empty">
       <app-project-card
-        *ngFor="let project of visible; trackBy: trackBySlug"
+        *ngFor="let project of visible; trackBy: trackBySlug; let i = index"
         [project]="project"
+        [appReveal]="i * 90"
       ></app-project-card>
     </div>
 
     <ng-template #empty>
-      <div class="empty card">
+      <div class="empty" appReveal>
         <app-icon name="code" [size]="26"></app-icon>
         <h2 class="empty__title">Todavía no hay proyectos publicados</h2>
         <p class="empty__body">

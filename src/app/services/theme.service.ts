@@ -7,7 +7,7 @@ const STORAGE_KEY = 'portfolio-theme';
 
 @Injectable({ providedIn: 'root' })
 export class ThemeService {
-  private readonly theme$ = new BehaviorSubject<Theme>('light');
+  private readonly theme$ = new BehaviorSubject<Theme>('dark');
 
   readonly current = this.theme$.asObservable();
 
@@ -42,9 +42,11 @@ export class ThemeService {
     }
   }
 
+  /**
+   * El portfolio se diseñó en oscuro: ese es el punto de partida salvo que
+   * el visitante haya elegido otra cosa antes.
+   */
   private systemPreference(): Theme {
-    return window.matchMedia?.('(prefers-color-scheme: dark)').matches
-      ? 'dark'
-      : 'light';
+    return 'dark';
   }
 }

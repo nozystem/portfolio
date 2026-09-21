@@ -1,29 +1,36 @@
 <footer class="footer">
-  <div class="container footer__inner">
-    <div class="footer__brand">
-      <p class="footer__name">{{ profile.name }}</p>
-      <p class="footer__role">{{ profile.role }} · {{ profile.location }}</p>
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <p class="footer__name">{{ profile.name }}</p>
+        <p class="footer__role">{{ profile.role }} · {{ profile.location }}</p>
+      </div>
+
+      <nav class="footer__nav" aria-label="Enlaces del pie">
+        <a routerLink="/">Inicio</a>
+        <a routerLink="/about">Sobre mí</a>
+        <a routerLink="/projects">Proyectos</a>
+        <a routerLink="/contact">Contacto</a>
+      </nav>
+
+      <ul class="footer__socials" *ngIf="socials.length">
+        <li *ngFor="let link of socials">
+          <a
+            [href]="link.url"
+            class="footer__social"
+            [attr.aria-label]="link.label"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <app-icon [name]="link.icon" [size]="17"></app-icon>
+          </a>
+        </li>
+      </ul>
     </div>
 
-    <nav class="footer__nav" aria-label="Enlaces del pie">
-      <a routerLink="/">Inicio</a>
-      <a routerLink="/about">Sobre mí</a>
-      <a routerLink="/projects">Proyectos</a>
-      <a routerLink="/contact">Contacto</a>
-    </nav>
-
-    <ul class="footer__socials" *ngIf="socials.length">
-      <li *ngFor="let link of socials">
-        <a
-          [href]="link.url"
-          class="footer__social"
-          [attr.aria-label]="link.label"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <app-icon [name]="link.icon" [size]="18"></app-icon>
-        </a>
-      </li>
-    </ul>
+    <div class="footer__bottom">
+      <p>© {{ year }} {{ profile.name }}</p>
+      <p>Hecho con Angular · Sin cookies ni rastreadores</p>
+    </div>
   </div>
 </footer>

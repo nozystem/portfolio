@@ -2,7 +2,7 @@
   --accent-project: var(--accent);
 
   position: relative;
-  padding: 2.5rem 0 3rem;
+  padding: 3.5rem 0 4rem;
   border-bottom: 1px solid var(--border);
   background: linear-gradient(
     180deg,
@@ -22,7 +22,7 @@
 }
 
 .back:hover {
-  color: var(--accent-project);
+  color: var(--text);
 }
 
 .detail-hero__tags {
@@ -33,7 +33,8 @@
 }
 
 .detail-hero__title {
-  margin: 0 0 0.4rem;
+  margin: 0 0 0.6rem;
+  font-size: clamp(2.6rem, 7vw, 5rem);
 }
 
 .detail-hero__meta {
@@ -77,13 +78,14 @@
 }
 
 .detail-block__title {
-  font-size: 1.35rem;
-  margin-bottom: 0.9rem;
+  margin-bottom: 1rem;
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
 }
 
 .detail-block p {
   max-width: 70ch;
   color: var(--text-muted);
+  line-height: 1.75;
 }
 
 /* --- Panel lateral -------------------------------------------------------- */
@@ -96,7 +98,7 @@
 }
 
 .panel {
-  padding: 1.4rem;
+  padding: 1.6rem;
 }
 
 .panel__title {
@@ -104,9 +106,9 @@
   align-items: center;
   gap: 0.45rem;
   margin: 0 0 1rem;
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
+  font-size: 0.75rem;
+  font-weight: 450;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--text-faint);
 }
@@ -127,7 +129,7 @@
 }
 
 .panel__metric-value {
-  font-weight: 600;
+  font-weight: 450;
 }
 
 .panel__stack {
@@ -143,17 +145,14 @@
   align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
-  padding: 1.5rem 1.8rem;
+  padding: 2rem 2.2rem;
   color: var(--text);
-  text-decoration: none;
-  transition: border-color 0.2s ease, transform 0.2s ease;
+  transition: border-color 0.4s var(--ease), transform 0.4s var(--ease);
 }
 
 .next:hover {
-  transform: translateY(-2px);
-  border-color: var(--accent);
-  color: var(--text);
-  text-decoration: none;
+  transform: translateY(-3px);
+  border-color: var(--border-strong);
 }
 
 .next__label {
@@ -164,8 +163,9 @@
 
 .next__name {
   display: block;
-  font-size: 1.15rem;
-  font-weight: 620;
+  margin-top: 0.25rem;
+  font-family: var(--font-display);
+  font-size: 1.8rem;
 }
 
 .next app-icon {

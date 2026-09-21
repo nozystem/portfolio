@@ -1,4 +1,6 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
+import { Subscription, filter } from 'rxjs';
 
 import { PROFILE } from '../../data/profile.data';
 import { ThemeService } from '../../services/theme.service';
@@ -13,7 +15,7 @@ interface NavItem {
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
   readonly profile = PROFILE;
 
   readonly navItems: NavItem[] = [
@@ -26,10 +28,22 @@ export class HeaderComponent implements OnInit {
   menuOpen = false;
   scrolled = false;
 
-  constructor(readonly theme: ThemeService) {}
+  private routerSub?: Subscription;
+
+  constructor(readonly theme: ThemeService, private readonly router: Router) {}
 
   ngOnInit(): void {
     this.onScroll();
+
+    // Si se navega desde el overlay, hay que soltar el bloqueo de scroll.
+    this.routerSub = this.router.events
+      .pipe(filter((event) => event instanceof NavigationEnd))
+      .subscribe(() => this.closeMenu());
+  }
+
+  ngOnDestroy(): void {
+    this.routerSub?.unsubscribe();
+    this.lockScroll(false);
   }
 
   @HostListener('window:scroll')
@@ -44,9 +58,15 @@ export class HeaderComponent implements OnInit {
 
   toggleMenu(): void {
     this.menuOpen = !this.menuOpen;
+    this.lockScroll(this.menuOpen);
   }
 
   closeMenu(): void {
     this.menuOpen = false;
+    this.lockScroll(false);
+  }
+
+  private lockScroll(locked: boolean): void {
+    document.body.style.overflow = locked ? 'hidden' : '';
   }
 }
